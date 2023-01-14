@@ -25,7 +25,11 @@ public class CustomerController {
 
     @GetMapping("/getAllCustomers")
     public List<Customer> getAllCustomers(){
-        return customerService.getAllCustomers();
+        List<Customer> allCustomers = customerService.getAllCustomers();
+        for (Customer customer : allCustomers) {
+            System.out.println(customer);
+        }
+        return allCustomers;
     }
 
     @PutMapping("/updateCustomer")
