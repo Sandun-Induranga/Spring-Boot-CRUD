@@ -3,10 +3,7 @@ package com.example.springbootcrud.controller;
 import com.example.springbootcrud.entity.Customer;
 import com.example.springbootcrud.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +26,11 @@ public class CustomerController {
     @GetMapping("/getAllCustomers")
     public List<Customer> getAllCustomers(){
         return customerService.getAllCustomers();
+    }
+
+    @PutMapping("/updateCustomer")
+    public boolean updateCustomer(@RequestBody Customer customer){
+        return customerService.updateCustomer(customer);
     }
 
 }
