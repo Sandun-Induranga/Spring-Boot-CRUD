@@ -19,17 +19,37 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
 
-    public Customer saveCustomer(Customer customer){
-        return customerRepository.save(customer);
+    public boolean saveCustomer(Customer customer) {
+
+        customerRepository.save(customer);
+        return true;
+
     }
 
-    public List<Customer> getAllCustomers(){
+    public List<Customer> getAllCustomers() {
+
         return customerRepository.findAll();
+
     }
 
-    public boolean deleteCustomer(Customer customer){
+    public boolean updateCustomer(Customer customer) {
+
+        Customer oldCustomer = customerRepository.findById(customer.getCustomerId()).orElse(null);
+        if (oldCustomer != null) {
+            oldCustomer.setCustomerName(customer.getCustomerName());
+            oldCustomer.setAddress(customer.getAddress());
+            oldCustomer.setSalary(customer.getSalary());
+            return true;
+        }
+        return false;
+
+    }
+
+    public boolean deleteCustomer(Customer customer) {
+
         customerRepository.delete(customer);
         return true;
+
     }
 
 }
