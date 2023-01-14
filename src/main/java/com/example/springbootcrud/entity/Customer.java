@@ -16,11 +16,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Student {
+public class Customer {
     @Id
-    @GeneratedValue
-    private int studentId;
-    private String name;
+    private int customerId;
+    private String customerName;
     private String address;
-    private int age;
+    private double salary;
 }
