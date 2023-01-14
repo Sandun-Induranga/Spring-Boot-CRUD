@@ -27,4 +27,9 @@ public class CustomerService {
         return customerRepository.findAll();
     }
 
+    public boolean deleteCustomer(Customer customer){
+        customerRepository.delete(customer);
+        return true;
+    }
+
 }
