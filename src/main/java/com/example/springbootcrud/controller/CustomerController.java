@@ -33,4 +33,9 @@ public class CustomerController {
         return customerService.updateCustomer(customer);
     }
 
+    @DeleteMapping("/deleteCustomer")
+    public boolean deleteCustomer(@RequestBody Customer customer){
+        return customerService.deleteCustomer(customer);
+    }
+
 }
